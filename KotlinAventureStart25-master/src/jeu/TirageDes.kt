@@ -21,3 +21,4 @@ class TirageDes(val nbDe:Int, val maxDe:Int) {
         return resultat
     }
 }
+
