@@ -1,13 +1,15 @@
 package jeu
 
 import armure1
-import eppe
+import armure2
+import bombe1
 import eppe1
 import eppe2
 import item.Armes
 import item.Armure
 import personnage.Personnage
-
+import potion1
+import potion2
 
 
 class Jeu(monstres: List<Personnage>) {
@@ -91,9 +93,7 @@ class Jeu(monstres: List<Personnage>) {
 
         var pointEndurance = 50+(scoresEndurance * 10)
 
-
-
-        val hero = Personnage(nomPersonnage, pointEndurance, pointEndurance, scoresAttaque, scoresDefense, scoresEndurance, scoresVitesse,eppe1,armure1,eppe2,arm)
+        val hero = Personnage(nomPersonnage, pointEndurance, pointEndurance, scoresAttaque, scoresDefense, scoresEndurance, scoresVitesse,eppe1,armure1, inventaire = mutableListOf(eppe1,armure1,potion1,potion2,bombe1))
         this.joueur = hero
         return this.joueur
     }

@@ -6,8 +6,8 @@ class Potion (var soin : Int, nom : String, description : String) : Item(nom,des
 
     override fun utiliser(personnage: Personnage) : Unit{
 
-
-
+        personnage.boirePotion()
+        personnage.avoirPotion()
     }
 
 }

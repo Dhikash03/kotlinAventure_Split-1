@@ -1,6 +1,7 @@
 package jeu
 
 import personnage.Personnage
+import personnage.Sort
 import kotlin.math.ln
 
 class Combat(
@@ -13,16 +14,17 @@ class Combat(
     fun tourDeJoueur() {
         println("\u001B[31m---Tour de ${this.jeu.joueur.nom} (pv: ${this.jeu.joueur.pointDeVie}) ---")
         println("Chosir une action : ")
-        println("1 -> Attaquer \n 2 -> passer")
+        println("1 -> Attaquer \n 2 -> passer \n 3 -> potion \n 3 -> bombe")
         var choix = readln().toInt()
 
         when (choix) {
-            1 -> " ${this.jeu.joueur.attaque(monstre)}"
+            1 -> "${this.jeu.joueur.attaque(monstre)}"
             2 -> "${this.jeu.joueur}passe son tour"
+            3 -> "${this.jeu.joueur.boirePotion()}"
             else -> "${this.jeu.joueur} n'a rien choisit"
         }
 
-
+        
         println("\u001b[0m")
     }
 
@@ -35,11 +37,17 @@ class Combat(
 
             if (nbAlea <= 70) {
                 monstre.attaque(this.jeu.joueur)
-            } else {
+            } else if (nbAlea < 80 && this.monstre.avoirPotion()) {
+                if (monstre.pointDeVie < monstre.pointDeVieMax / 2) {
+                    println("${monstre.nom} boit ${monstre.boirePotion()}")
+                }
+            }
+        else {
                 println("${monstre.nom} passe son tour")
             }
+
             println("\u001b[0m")
-                                        //TODO Mission 1.3
+
         }
         // Méthode pour exécuter le combat complet
 

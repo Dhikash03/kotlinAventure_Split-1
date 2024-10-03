@@ -1,6 +1,7 @@
 package item
 
 import com.sun.jdi.Type
+import jeu.Jeu
 import jeu.TirageDes
 import personnage.Personnage
 
@@ -24,6 +25,9 @@ class Armes(nom : String, description : String,var type: TypeArme,var qualite: Q
 
 
     override fun utiliser(personnage: Personnage){
+
+        personnage.equipeArmes(this)
+
     }
 
 
